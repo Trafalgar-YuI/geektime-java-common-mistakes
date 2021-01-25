@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+management:
+  endpoint:
+    beans:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,beans
