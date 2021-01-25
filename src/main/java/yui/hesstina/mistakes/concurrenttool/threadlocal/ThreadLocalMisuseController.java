@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 1.0
  */
 @RestController
-@RequestMapping("threadlocal")
+@RequestMapping("threadlocalmisuse")
 @Slf4j
 public class ThreadLocalMisuseController {
 
