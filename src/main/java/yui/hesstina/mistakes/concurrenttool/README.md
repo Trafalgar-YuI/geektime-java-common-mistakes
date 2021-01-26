@@ -106,3 +106,59 @@ ns         %     Task name
 3511184200  078%  normal use
 979525300  022%  good use
 ```
+
+## 没有认清并发工具的使用场景，因而导致性能问题
+在这个包下
+```java
+package yui.hesstina.mistakes.concurrenttool.copyonwritelistmisuse;
+```
+
+- 测试并发写
+```http request
+GET http://localhost:8080/copyonwritelistmisuse/write
+```
+
+```text
+2021-01-27 00:24:47.273  INFO 1656 --- [nio-8080-exec-1] .h.m.c.c.CopyOnWriteListMisuseController : StopWatch '': running time = 3265832300 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+3239181300  099%  Write:copyOnWriteArrayList
+026651000  001%  Write:synchronizedList
+```
+```json
+{
+  "copyOnWriteArrayList": 99999,
+  "synchronizedList": 99999
+}
+```
+
+- 测试并发读
+```http request
+GET http://localhost:8080/copyonwritelistmisuse/read
+```
+
+```text
+2021-01-27 01:56:12.770  INFO 12232 --- [nio-8080-exec-1] .h.m.c.c.CopyOnWriteListMisuseController : StopWatch '': running time = 36688400 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+007264600  021%  Read:copyOnWriteArrayList
+028145100  079%  Read:synchronizedList
+```
+```json
+{
+  "copyOnWriteArrayList": 99999,
+  "synchronizedList": 99999
+}
+```
+
+## （补充）putIfAbsent vs computeIfAbsent的一些特性比对：ciavspia
+```java
+package yui.hesstina.mistakes.concurrenttool.ciavspia;
+```
+
+## （补充）异步执行多个子任务等待所有任务结果汇总处理的例子
+```java
+package yui.hesstina.mistakes.concurrenttool.multiasynctasks;
+```
