@@ -8,7 +8,7 @@ package yui.hesstina.mistakes.concurrenttool.threadlocal;
 ```
 
 - 错误用法
-```http request
+```http
 GET http://localhost:8080/threadlocalmisuse/wrong?userId=1
 ```
 请求两次
@@ -27,7 +27,7 @@ GET http://localhost:8080/threadlocalmisuse/wrong?userId=1
 同一个线程会有两个相同的值
 
 - 正确用法
-```http request
+```http
 GET http://localhost:8080/threadlocalmisuse/right?userId=1
 ```
 请求两次
@@ -47,7 +47,7 @@ package yui.hesstina.mistakes.concurrenttool.concurrenthashmapmisuse;
 ```
 
 - 错误用法
-```http request
+```http
 GET http://localhost:8080/concurrenthashmapmisuse/wrong
 ```
 日志文件
@@ -69,7 +69,7 @@ GET http://localhost:8080/concurrenthashmapmisuse/wrong
 - 正确用法
 在并发的部分加锁
 
-```http request
+```http
 GET http://localhost:8080/concurrenthashmapmisuse/right
 ```
 日志文件
@@ -94,7 +94,7 @@ GET http://localhost:8080/concurrenthashmapmisuse/right
 package yui.hesstina.mistakes.concurrenttool.concurrenthashmapperformance;
 ```
 
-```http request
+```http
 GET http://localhost:8080/concurrenthashmapperformance/compare
 ```
 
@@ -114,7 +114,7 @@ package yui.hesstina.mistakes.concurrenttool.copyonwritelistmisuse;
 ```
 
 - 测试并发写
-```http request
+```http
 GET http://localhost:8080/copyonwritelistmisuse/write
 ```
 
@@ -134,7 +134,7 @@ ns         %     Task name
 ```
 
 - 测试并发读
-```http request
+```http
 GET http://localhost:8080/copyonwritelistmisuse/read
 ```
 
