@@ -1,21 +1,21 @@
-package yui.hesstina.mistakes.lock.lockscope;
+package yui.hesstina.mistakes.lock.deadlock;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 锁的作用域相关问题 <br/>
+ * 死锁问题 <br/>
  * 启动类
  *
  * @author YuI
- * @date 2021/1/27 10:59
+ * @date 2021/1/29 16:01
  * @since 1.0
  */
 @SpringBootApplication
-public class LockScopeApplication {
+public class DeadLockMistakesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LockScopeApplication.class, args);
+        SpringApplication.run(DeadLockMistakesApplication.class, args);
     }
 
 }

@@ -1,6 +1,5 @@
 package yui.hesstina.mistakes.lock.lockscope;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
@@ -9,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.common.collect.ImmutableMap;
+
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 锁的范围相关问题 <br/>
+ * 锁的作用域相关问题 <br/>
  * Controller
  *
  * @author YuI
@@ -48,10 +49,7 @@ public class LockScopeController {
 
 		IntStream.range(1, count).parallel().forEach(i -> new DataSyncMistakes().wrong());
 
-		Map<String, Integer> result = new HashMap<>();
-		result.put("result", DataSyncMistakes.getCounter());
-
-		return result;
+		return ImmutableMap.of("result", DataSyncMistakes.getCounter());
 	}
 
 	@GetMapping("right1")
@@ -60,9 +58,6 @@ public class LockScopeController {
 
 		IntStream.range(1, count).parallel().forEach(i -> new DataSyncMistakes().right());
 
-		Map<String, Integer> result = new HashMap<>();
-		result.put("result", DataSyncMistakes.getCounter());
-
-		return result;
+		return ImmutableMap.of("result", DataSyncMistakes.getCounter());
 	}
 }
